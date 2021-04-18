@@ -1,6 +1,9 @@
 package com.sda.company.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "company")
@@ -24,6 +27,13 @@ public class Company {
 
     @Column
     private String email;
+
+    @OneToMany(mappedBy = "company",
+            targetEntity = Employee.class,
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("company")
+    private List<Employee> employeeList;
 
     public Integer getId() {
         return id;
@@ -73,4 +83,11 @@ public class Company {
         this.email = email;
     }
 
+    public List<Employee> getEmployeeList() {
+        return employeeList;
+    }
+
+    public void setEmployeeList(List<Employee> employeeList) {
+        this.employeeList = employeeList;
+    }
 }

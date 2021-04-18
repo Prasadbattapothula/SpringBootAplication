@@ -1,5 +1,7 @@
 package com.sda.company.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -30,6 +32,10 @@ public class Employee {
 
     @Column
     private boolean isHired;
+
+    @ManyToOne
+    @JsonIgnoreProperties("employeeList")
+    private Company company;
 
     public Integer getId() {
         return id;
@@ -93,5 +99,13 @@ public class Employee {
 
     public void setHired(boolean hired) {
         isHired = hired;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 }

@@ -78,4 +78,9 @@ public class CompanyServiceImpl implements CompanyService {
             throw new CompanyNotFoundException("Company with registration number " + registrationNumber + " not found");
         }
     }
+
+    @Override
+    public Optional<Company> findById(Integer id) {
+        return companyRepository.findById(id);
+    }
 }

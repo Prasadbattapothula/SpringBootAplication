@@ -1,8 +1,8 @@
 package com.sda.company.controller;
 
 import com.sda.company.model.Employee;
-import com.sda.company.service.CompanyService;
 import com.sda.company.service.EmployeeService;
+import com.sun.istack.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,13 +31,20 @@ public class EmployeeController {
         return ResponseEntity.ok(employeeService.getAll());
     }
 
-    @GetMapping("/findByName")
-    public ResponseEntity<Employee> findByName(@RequestParam String name) {
-        return ResponseEntity.ok(employeeService.findByName(name));
+    @GetMapping("/findByFirstName")
+    public ResponseEntity<Employee> findByFirstName(@RequestParam String name) {
+        return ResponseEntity.ok(employeeService.findByFirstName(name));
     }
 
     @DeleteMapping("/delete")
     public void deleteById(@RequestParam Integer id) {
         employeeService.deleteEmployeeById(id);
     }
+
+    @PutMapping("/hire")
+    public ResponseEntity<Employee> hireEmployee(@RequestParam @NotNull Integer employeeId,
+                                                 @RequestParam @NotNull Integer companyId) {
+        return ResponseEntity.ok(employeeService.hire(employeeId, companyId));
+    }
+
 }

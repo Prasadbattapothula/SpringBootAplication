@@ -32,7 +32,7 @@ public class HelloThymeleaf {
         String username = loginForm.getUsername();
         String password = loginForm.getPassword();
 
-        if(username.equalsIgnoreCase("admin") && password.equalsIgnoreCase("pass")) {
+        if (username.equalsIgnoreCase("admin") && password.equalsIgnoreCase("pass")) {
             return "home";
         } else {
             return "start";

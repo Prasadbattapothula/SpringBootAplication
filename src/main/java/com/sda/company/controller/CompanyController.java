@@ -1,7 +1,6 @@
 package com.sda.company.controller;
 
 import com.sda.company.components.CustomFakerCompany;
-import com.sda.company.exception.CompanyNotFoundException;
 import com.sda.company.model.Company;
 import com.sda.company.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/companies")
@@ -28,7 +26,6 @@ public class CompanyController {
     //the @RequestBody annotation allows us to retrieve the request’s body and automatically convert it to Java Object.
     //the @RequestBody annotation binds the HTTPRequest body to the domain object.
     //RequestMapping annotation is used to map web requests onto specific handler classes and/or handler methods.
-
 
     @PostMapping("/create")
     public ResponseEntity<Company> create(@RequestBody Company company) {

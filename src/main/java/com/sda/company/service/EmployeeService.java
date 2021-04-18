@@ -10,7 +10,10 @@ public interface EmployeeService {
 
     List<Employee> getAll();
 
-    Employee findByName(String name);
+    Employee findByFirstName(String name);
 
     void deleteEmployeeById(Integer id);
+
+    Employee hire(Integer employeeId, Integer companyId);
+
 }

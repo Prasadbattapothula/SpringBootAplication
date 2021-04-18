@@ -17,7 +17,6 @@ public class CustomFakerCompany {
             company.setPhoneNumber(faker.phoneNumber().phoneNumber());
             company.setEmail(faker.bothify("?????##@yahoo.com"));
             company.setRegistrationNumber(String.valueOf(faker.number().randomNumber(11, true)));
-
             companies.add(company);
         }
         return companies;

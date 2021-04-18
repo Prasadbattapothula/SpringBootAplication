@@ -2,7 +2,6 @@ package com.sda.company.service;
 
 import com.sda.company.model.Company;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,4 +21,5 @@ public interface CompanyService {
 
     void deleteCompanyByRegistrationNumber(String registrationNumber);
 
+    Optional<Company> findById(Integer id);
 }

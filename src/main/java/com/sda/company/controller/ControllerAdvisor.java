@@ -16,7 +16,7 @@ import java.util.Map;
 public class ControllerAdvisor extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(CompanyNotFoundException.class)
-    public ResponseEntity<Object> handledCompanyNotFoundException (CompanyNotFoundException exception) {
+    public ResponseEntity<Object> handledCompanyNotFoundException(CompanyNotFoundException exception) {
         Map<String, Object> body = new LinkedHashMap<>();
         body.put("timeStamp", LocalDateTime.now());
         body.put("message", exception.getLocalizedMessage());
@@ -25,7 +25,7 @@ public class ControllerAdvisor extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(EmployeeNotFoundException.class)
-    public ResponseEntity<Object> handledEmployeeNotFoundException (EmployeeNotFoundException exception) {
+    public ResponseEntity<Object> handledEmployeeNotFoundException(EmployeeNotFoundException exception) {
         Map<String, Object> body = new LinkedHashMap<>();
         body.put("timeStamp", LocalDateTime.now());
         body.put("message", exception.getLocalizedMessage());
